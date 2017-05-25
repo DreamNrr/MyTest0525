@@ -1,27 +1,38 @@
 package com.example.wzh.mytest0525.pager;
 
-import android.view.Gravity;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.wzh.mytest0525.R;
+import com.example.wzh.mytest0525.adapter.NetVideoAdapter;
+import com.example.wzh.mytest0525.domain.MediaItem;
 import com.example.wzh.mytest0525.fragment.BaseFragment;
+
+import java.util.ArrayList;
 
 /**
  * Created by WZH on 2017/5/25.
  */
 
 public class NetVideoPager extends BaseFragment {
-    private TextView textView;
+    private ListView lv;
+    private TextView tv_nodata;
+    private ArrayList<MediaItem> mediaItems;
+    private NetVideoAdapter adapter;
     @Override
     public View initView() {
-        textView = new TextView(context);
-        textView.setTextSize(30);
-        textView.setGravity(Gravity.CENTER);
-        return textView;
+        View view = View.inflate(context, R.layout.fragment_net_video_pager,null);
+        lv = (ListView) view.findViewById(R.id.lv);
+        tv_nodata = (TextView) view.findViewById(R.id.tv_nodata);
+
+
+        return view;
     }
     @Override
     public void initData() {
         super.initData();
-        textView.setText("网络视频");
     }
+
+
 }
